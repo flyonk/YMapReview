@@ -1,0 +1,45 @@
+$black: #000000;
+$gray: rgb(255, 255, 255);
+$green: #365a49;
+
+@mixin tablets {
+    @media screen and (max-width: $tablets) {
+        @content;
+    }
+}
+
+@mixin phones {
+    @media screen and (max-width: $phones) {
+        @content;
+    }
+}
+
+
+body {
+    font-family: "Alegreya Sans Light", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+h1 {
+    font-size: 48;
+    font-family: "Alegreya Sans";
+    color: $gray;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+
+}
+
+
+p {
+    font-size: 21px;
+    font-family: "Alegreya Sans";
+    color: $gray;
+    text-align: left;
+    line-height: 1.2;
+}
+
+

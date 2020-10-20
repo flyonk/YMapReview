@@ -1,0 +1,165 @@
+$tablets: 768px;
+$phones: 480px;
+$iphone5: 400px;
+
+* {
+    box-sizing: border-box;
+}
+
+@mixin tablets {
+    @media screen and (max-width: $tablets) {
+        @content;
+    }
+}
+
+@mixin phones {
+    @media screen and (max-width: $phones) {
+        @content;
+    }
+}
+
+@mixin iphone5 {
+    @media screen and (max-width: $iphone5) {
+        @content;
+    }
+}
+
+
+
+
+
+html {
+    font-size: $GlobalFontSize;
+    font-family: "Alegreya Sans";
+    height: 100%;
+
+    @include tablets {
+        font-size: $GlobalFontSize - 1px;
+    }
+
+    @include phones {
+        font-size: $GlobalFontSize - 2px;
+    }
+
+    @include iphone5 {
+        font-size: $GlobalFontSize - 4px;
+    }
+}
+
+body {
+    height: 100%;
+}
+
+
+@mixin button666 {
+    border-radius: rem(35px);
+    border: none;
+    font-size: rem(19px);
+    font-family: "Alegreya Sans ExtraBold";
+    text-transform: uppercase;
+    line-height: normal;
+    padding: rem(21px) rem(32px);
+    display: inline-block;
+
+    &:focus {
+        outline: 0;
+    }
+
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+
+
+
+.section {
+    height: 100vh;
+    min-height: rem(650px);
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+
+
+
+
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.maincontent {
+    height: 100%;
+    width: 100%;
+    transition: transform 1s;
+    will-change: transform;
+}
+
+.layout-container {
+    display: flex;
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    width: 95%;
+}
+
+.scroller {
+    display: flex;
+    flex-direction: column;
+    width: 30px;
+    height: 200px;
+    position: absolute;
+    top: 40%;
+    right: 5%;
+    z-index: 999999;
+
+    .scroller__svg {
+        fill: white;
+    }
+
+        @include phones {
+            display: none;
+        }
+
+    &--shadowed {
+        .scroller__svg {
+            fill: black;
+        }
+    }
+
+}
+
+.scroller__item {
+    width: 20px;
+    height: 20px;
+}
+
+
+.scroller-item--active {
+    .scroller__svg {
+        fill: red;
+    }
+}
+
+.duration__length::-webkit-slider-thumb {
+ -webkit-appearance: none;
+ width: 20px;
+ height: 20px;
+ background: red;
+}
